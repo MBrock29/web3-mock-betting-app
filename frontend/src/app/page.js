@@ -259,14 +259,14 @@ const Home = () => {
           )}
         </div>
 
-        <div className='flex w-full text-xs sm:text-sm sm:w-8/12 mb-6 flex-col mx-auto sm:ml-5 bg-[#311b61] p-5 rounded-lg h-full overflow-auto'>
+        <div className='flex w-fit xs:w-full text-xs max-w-[1000px] sm:text-sm sm:w-8/12 mb-6 flex-col mx-auto sm:ml-5 bg-[#311b61] p-5 rounded-lg h-full overflow-auto'>
           {odds.map((x, index) => (
             <div
               className='flex w-full flex-col xs:flex-row mb-8 xs:mb-0'
               key={index}
             >
-              <div className='w-full xs:w-1/2 flex items-center font-bold text-md'>
-                <span className='mx-1 w-1/3 flex justify-end text-right'>
+              <div className='w-full xs:w-1/2 flex justify-center items-center font-bold text-md'>
+                <span className='mx-1 xs:w-1/3 flex justify-end text-right'>
                   {x.homeTeam}
                 </span>
                 <div className='mx-2 flex justify-center items-center'>
@@ -277,9 +277,9 @@ const Home = () => {
                   <span className='mx-2'>Vs</span>
                   <img src={x.awayTeamImage} className='w-[30px] h-[30px]' />
                 </div>
-                <span className='mx-1 w-1/3'>{x.awayTeam}</span>
+                <span className='mx-1 xs:w-1/3'>{x.awayTeam}</span>
               </div>
-              <div className='w-full xs:w-1/2 flex-col xs:flex-row justify-end'>
+              <div className='w-full xs:w-1/2 flex-col xs:flex-row xs:justify-end'>
                 <button
                   className='border-2 border-opacity-40 rounded-lg mx-2 w-full xs:w-auto xs:min-w-[124px] border-white font-bold py-2 px-5 my-2 bg-[#361e65] odds-box'
                   onClick={() => handleTeamClicked(x.homeTeam, x)}

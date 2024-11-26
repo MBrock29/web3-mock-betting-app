@@ -4,34 +4,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
 body {
-    font-family: 'Space Mono', monospace !important;
-    background: linear-gradient(135deg, #1a0b30, #2d1445);
+  font-family: 'Space Mono', monospace !important;
+  background: linear-gradient(135deg, #1a0b30, #2d1445);
 }
 
 .odds-box {
-    background: linear-gradient(135deg, #2e0d50, #4b237f);
-    border-radius: 8px;
-    padding: 10px;
-    color: white;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .odds-box:hover {
-    background: white;
-    color: #311b61;
-    padding: 0;
-    transition: none;
-  }
-  
-  /* Disabled state */
+  background: linear-gradient(135deg, #2e0d50, #4b237f);
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.odds-box:hover {
+  background: white;
+  color: #311b61;
+  transition: none;
+}
+
+/* Disabled state */
 .odds-box:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-  
-  /* Hover effect while disabled */
-  .odds-box:disabled:hover {
-    background-color: #4A5568; /* Use your specified color */
-    color: white;
-    cursor: not-allowed;
-  }
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Hover effect while disabled */
+.odds-box:disabled:hover {
+  background-color: #4a5568; /* Use your specified color */
+  color: white;
+  cursor: not-allowed;
+}
