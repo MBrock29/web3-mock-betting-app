@@ -2,19 +2,16 @@ import { Network, Alchemy } from 'alchemy-sdk';
 import { JsonRpcProvider } from 'ethers'; // Updated for ethers v6
 import { Contract } from 'ethers/contract';
 
-// Alchemy SDK settings
 const settings = {
-  apiKey: 'E3bpmyTpH0nVKzk87OMa3iBk4x7r8nzT',
+  apiKey: `${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}`,
   network: Network.ETH_SEPOLIA,
 };
 const alchemy = new Alchemy(settings);
 
-// Provider to interact with the Ethereum network
 const provider = new JsonRpcProvider(
-  `https://eth-sepolia.g.alchemy.com/v2/E3bpmyTpH0nVKzk87OMa3iBk4x7r8nzT`
+  `https://eth-sepolia.g.alchemy.com/v2/${settings.apiKey}`
 );
 
-// Contract settings (address and ABI)
 export const contractConfig = {
   address: '0xB4E5710a8329EE5b6c34B18Bbb848e3A2d74ed47',
   abi: [
@@ -225,7 +222,6 @@ const contract = new Contract(
 const getLatestBlock = async () => {
   try {
     const latestBlock = await alchemy.core.getBlockNumber();
-    console.log('Latest block:', latestBlock);
   } catch (error) {
     console.error('Error fetching the latest block:', error);
   }
