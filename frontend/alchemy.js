@@ -1,5 +1,5 @@
 import { Network, Alchemy } from 'alchemy-sdk';
-import { JsonRpcProvider } from 'ethers'; // Updated for ethers v6
+import { JsonRpcProvider } from 'ethers';
 import { Contract } from 'ethers/contract';
 
 const settings = {
