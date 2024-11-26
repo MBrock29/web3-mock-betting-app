@@ -7,15 +7,18 @@ import { contractConfig } from '../../../alchemy';
 import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { useAppContext } from '../AppContext';
 
-export const Withdraw = ({ refetch }) => {
+export const Withdraw = ({ refetch, balance }) => {
   const [withdrawalAmount, setWithdrawalAmount] = useState(0);
   const { withdrawing, setWithdrawing, withdrawFunction } = useAppContext();
 
-  const { writeContract, data: hash, error, isPending } = useWriteContract();
+  const { writeContract, data: hash, error } = useWriteContract();
   const { isLoading: isConfirming, isSuccess: isConfirmed } =
     useWaitForTransactionReceipt({
       hash,
     });
+
+  console.log(parseInt(balance));
+  console.log(withdrawalAmount);
 
   const submitWithdrawal = async () => {
     try {
@@ -84,7 +87,7 @@ export const Withdraw = ({ refetch }) => {
         <button
           className='flex justify-center w-[40px] my-auto disabled:opacity-20 disabled:hover:cursor-not-allowed'
           onClick={submitWithdrawal}
-          disabled={withdrawalAmount <= 0}
+          disabled={withdrawalAmount * 10000 > balance}
         >
           <TiTickOutline size='28px' />
         </button>

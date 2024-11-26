@@ -29,7 +29,7 @@ const Header = ({ balance, refetch, handleDisconnect }) => {
             <Deposit refetch={refetch} />
           </div>
           <div className='flex flex-col w-1/5 items-center'>
-            <Withdraw refetch={refetch} />
+            <Withdraw refetch={refetch} balance={balance} />
           </div>
           <div className='flex flex-col w-1/5 items-center'>
             <Settings handleDisconnect={handleDisconnect} />
