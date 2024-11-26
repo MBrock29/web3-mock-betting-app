@@ -218,15 +218,6 @@ const contract = new Contract(
   provider
 );
 
-// Example function: Fetch the latest block using Alchemy SDK
-const getLatestBlock = async () => {
-  try {
-    const latestBlock = await alchemy.core.getBlockNumber();
-  } catch (error) {
-    console.error('Error fetching the latest block:', error);
-  }
-};
-
 // Example function: Interact with the contract's withdrawOwner function
 const withdrawOwner = async (signer) => {
   try {
@@ -239,8 +230,5 @@ const withdrawOwner = async (signer) => {
     console.error('Error during owner withdrawal:', error);
   }
 };
-
-// Get the latest block number (example of using Alchemy)
-getLatestBlock();
 
 export { alchemy, contract, withdrawOwner };

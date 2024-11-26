@@ -17,9 +17,6 @@ export const Withdraw = ({ refetch, balance }) => {
       hash,
     });
 
-  console.log(parseInt(balance));
-  console.log(withdrawalAmount);
-
   const submitWithdrawal = async () => {
     try {
       const withdrawalAmountInWei = parseEther(withdrawalAmount.toString());
