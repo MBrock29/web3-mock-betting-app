@@ -11,7 +11,7 @@ export function Providers({ children }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-      <RainbowKitProvider
+        <RainbowKitProvider
           theme={darkTheme({
             accentColor: '#0E76FD',
             accentColorForeground: 'white',
@@ -20,9 +20,9 @@ export function Providers({ children }) {
             overlayBlur: 'small',
           })}
         >
-        {children}
+          {children}
         </RainbowKitProvider>
-        </QueryClientProvider>
+      </QueryClientProvider>
     </WagmiProvider>
   );
 }

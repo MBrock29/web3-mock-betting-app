@@ -1,5 +1,5 @@
 import { sepolia } from 'wagmi/chains';
-import { contractConfig } from './contractConfig'; // Ensure this file exists with your ABI and address
+import { contractConfig } from './contractConfig';
 import { getPublicClient, getWalletClient } from '@wagmi/core';
 import { Contract, JsonRpcProvider } from 'ethers';
 
@@ -30,7 +30,6 @@ export const withdrawOwner = async () => {
     const { request } = await contract.withdrawOwner.populateTransaction();
     const hash = await walletClient.sendTransaction(request);
     console.log('Transaction sent:', hash);
-    // Wait for transaction confirmation
     const publicClient = getPublicClient({ chainId: sepolia.id });
     await publicClient.waitForTransactionReceipt({ hash });
     console.log('Owner withdrawal successful');
