@@ -213,7 +213,7 @@ const Home = () => {
       />
 
       <div className='flex w-11/12 justify-evenly mx-auto text-sm sm:text-lg flex-col sm:flex-row '>
-        <div className='flex w-fit mx-auto h-fit mb-5 sm:mb-0 sm:w-4/12 flex-col sm:mr-5 sm:items-center bg-[#311b61] p-5 rounded-lg sm:min-h-[430px] text-center'>
+        <div className='flex w-fit min-w-[372px] max-w-[430px] mx-auto h-fit mb-5 sm:mb-0 sm:w-4/12 flex-col sm:mr-5 sm:items-center bg-[#311b61] p-5 rounded-lg sm:min-h-[430px] text-center'>
           <div>
             <h4 className='mb-6'>Enter an amount and select a result!</h4>
             <h4 className='mb-6'>Maximum bet amount: 1000</h4>
