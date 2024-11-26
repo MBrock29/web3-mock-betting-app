@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import {
   useAccount,
-  useConnect,
   useDisconnect,
   useReadContract,
   useWriteContract,
@@ -17,8 +16,8 @@ import { odds, homeWin, awayWin, draw } from './components/Odds';
 import { useAppContext } from './AppContext';
 
 const Home = () => {
-  const { writeContract, data: hash, error, isPending } = useWriteContract();
-  const { address, isConnected, chain } = useAccount();
+  const { writeContract, data: hash, error } = useWriteContract();
+  const { address, chain } = useAccount();
   const [loggedIn, setLoggedIn] = useState(false);
   const [betAmount, setBetAmount] = useState('');
   const [loading, setLoading] = useState(false);
@@ -29,7 +28,6 @@ const Home = () => {
   const [betDisabled, setBetDisabled] = useState(true);
   const { fractions, handleChange, setDepositing } = useAppContext();
   const [selection, setSelection] = useState({});
-  const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
 
   const handleDisconnect = () => {
@@ -53,7 +51,7 @@ const Home = () => {
     ? parseFloat(formatUnits(playerBalance, 'ether')) * 10000
     : 0;
 
-  const { data: betOutcome, refetch: refetchBetOutcome } = useReadContract({
+  const { refetch: refetchBetOutcome } = useReadContract({
     address: contractConfig.address,
     abi: contractConfig.abi,
     functionName: 'getResult',
@@ -261,14 +259,14 @@ const Home = () => {
           )}
         </div>
 
-        <div className='flex w-fit xs:w-full text-xs sm:text-sm sm:w-8/12 mb-6 flex-col mx-auto sm:ml-5 bg-[#311b61] p-5 rounded-lg h-full overflow-auto'>
+        <div className='flex w-full text-xs sm:text-sm sm:w-8/12 mb-6 flex-col mx-auto sm:ml-5 bg-[#311b61] p-5 rounded-lg h-full overflow-auto'>
           {odds.map((x, index) => (
             <div
               className='flex w-full flex-col xs:flex-row mb-8 xs:mb-0'
               key={index}
             >
-              <div className='w-1/2 flex items-center font-bold text-md'>
-                <span className='mx-1 w-1/3 flex justify-end'>
+              <div className='w-full xs:w-1/2 flex items-center font-bold text-md'>
+                <span className='mx-1 w-1/3 flex justify-end text-right'>
                   {x.homeTeam}
                 </span>
                 <div className='mx-2 flex justify-center items-center'>
@@ -281,9 +279,9 @@ const Home = () => {
                 </div>
                 <span className='mx-1 w-1/3'>{x.awayTeam}</span>
               </div>
-              <div className='w-1/2 flex'>
+              <div className='w-full xs:w-1/2 flex-col xs:flex-row justify-end'>
                 <button
-                  className='border-2 border-opacity-40 rounded-lg mx-2 min-w-[124px] border-white font-bold py-2 px-5 my-2 bg-[#361e65] odds-box'
+                  className='border-2 border-opacity-40 rounded-lg mx-2 w-full xs:w-auto xs:min-w-[124px] border-white font-bold py-2 px-5 my-2 bg-[#361e65] odds-box'
                   onClick={() => handleTeamClicked(x.homeTeam, x)}
                   disabled={betDisabled}
                 >
@@ -294,7 +292,7 @@ const Home = () => {
                 </button>
 
                 <button
-                  className='border-2 border-opacity-40 rounded-lg mx-2 min-w-[124px] font-bold py-2 px-5 my-2 bg-[#361e65] border-white odds-box'
+                  className='border-2 border-opacity-40 rounded-lg mx-2 w-full xs:w-auto xs:min-w-[124px] font-bold py-2 px-5 my-2 bg-[#361e65] border-white odds-box'
                   onClick={() => handleTeamClicked(x.draw, x)}
                   disabled={betDisabled}
                 >
@@ -305,7 +303,7 @@ const Home = () => {
                 </button>
 
                 <button
-                  className='border-2 border-opacity-40 rounded-lg mx-2 border-r-2 min-w-[124px] border-white  font-bold py-2 px-5 my-2 bg-[#361e65] odds-box overflow-hidden whitespace-nowrap text-ellipses'
+                  className='border-2 border-opacity-40 rounded-lg mx-2 border-r-2 w-full xs:w-auto xs:min-w-[124px] border-white  font-bold py-2 px-5 my-2 bg-[#361e65] odds-box overflow-hidden whitespace-nowrap text-ellipses'
                   onClick={() => handleTeamClicked(x.awayTeam, x)}
                   disabled={betDisabled}
                 >
