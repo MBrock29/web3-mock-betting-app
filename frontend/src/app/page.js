@@ -259,7 +259,7 @@ const Home = () => {
           )}
         </div>
 
-        <div className='flex w-fit xs:w-full text-xs max-w-[1000px] sm:text-sm sm:w-8/12 mb-6 flex-col mx-auto sm:ml-5 bg-[#311b61] p-5 rounded-lg h-full overflow-auto'>
+        <div className='flex w-fit xs:w-full text-xs xs:max-w-[1000px] sm:text-sm sm:w-8/12 mb-6 flex-col mx-auto sm:ml-5 bg-[#311b61] p-5 rounded-lg h-full overflow-auto'>
           {odds.map((x, index) => (
             <div
               className='flex w-full flex-col xs:flex-row mb-8 xs:mb-0'
