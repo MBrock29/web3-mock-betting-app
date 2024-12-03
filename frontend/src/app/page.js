@@ -26,12 +26,13 @@ const Home = () => {
   const [teamSelected, setTeamSelected] = useState('');
   const [displayResultOutcome, setDisplayResultOutcome] = useState('');
   const [betDisabled, setBetDisabled] = useState(true);
-  const { fractions, handleChange, setDepositing } = useAppContext();
+  const { fractions, handleChange, setDepositing, setSettings } = useAppContext();
   const [selection, setSelection] = useState({});
   const { disconnect } = useDisconnect();
 
   const handleDisconnect = () => {
     disconnect();
+    setSettings(false)
   };
 
   const weiConv = 1000000000000000000;
