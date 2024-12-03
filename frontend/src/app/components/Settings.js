@@ -10,7 +10,11 @@ export const Settings = ({ handleDisconnect }) => {
     <div>
       {settings ? (
         <div className='flex flex-col items-center'>
-          <CiSettings onClick={() => setSettings(false)} size='35px' />
+          <CiSettings
+            onClick={() => setSettings(false)}
+            size='35px'
+            className='cursor-pointer'
+          />
           <div className='flex text-sm items-center'>
             <p className='mr-1'>Odds display:</p>
             <select
@@ -27,7 +31,11 @@ export const Settings = ({ handleDisconnect }) => {
           </button>
         </div>
       ) : (
-        <CiSettings onClick={settingsFunction} size='35px' />
+        <CiSettings
+          onClick={settingsFunction}
+          size='35px'
+          className='cursor-pointer'
+        />
       )}
     </div>
   );

@@ -26,13 +26,14 @@ const Home = () => {
   const [teamSelected, setTeamSelected] = useState('');
   const [displayResultOutcome, setDisplayResultOutcome] = useState('');
   const [betDisabled, setBetDisabled] = useState(true);
-  const { fractions, handleChange, setDepositing, setSettings } = useAppContext();
+  const { fractions, handleChange, setDepositing, setSettings } =
+    useAppContext();
   const [selection, setSelection] = useState({});
   const { disconnect } = useDisconnect();
 
   const handleDisconnect = () => {
     disconnect();
-    setSettings(false)
+    setSettings(false);
   };
 
   const weiConv = 1000000000000000000;
@@ -74,7 +75,7 @@ const Home = () => {
   }, [chain, loggedIn]);
 
   useEffect(() => {
-    if (betAmount > 1000 || betAmount > balance || loading) {
+    if (betAmount > 1000 || betAmount > balance || betAmount <= 0 || loading) {
       setBetDisabled(true);
     } else {
       setBetDisabled(false);
@@ -159,7 +160,7 @@ const Home = () => {
         }
       }
       if (error) {
-        toast.error('Deposit failed', { id: hash });
+        toast.error('Transaction cancelled', { id: hash });
       }
     };
 

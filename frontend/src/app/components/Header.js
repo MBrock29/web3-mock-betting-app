@@ -24,7 +24,7 @@ const Header = ({ balance, refetch, handleDisconnect }) => {
               <p>Balance: {(Math.floor(balance * 100) / 100).toFixed(2)}</p>
             </div>
           </div>
-          <h3 className='w-1/5'>0.1 ETH = 1000 credits</h3>
+          <h3 className='w-1/5'>0.1 test ETH = 1000 credits</h3>
           <div className='flex flex-col w-1/5 items-center'>
             <Deposit refetch={refetch} />
           </div>

@@ -24,7 +24,6 @@ body {
 
 /* Disabled state */
 .odds-box:disabled {
-  opacity: 0.4;
   cursor: not-allowed;
 }
 
