@@ -6,15 +6,14 @@ import { config } from '../config/wagmi';
 import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
 
 const queryClient = new QueryClient();
-
 export function Providers({ children }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
           theme={darkTheme({
-            accentColor: '#0E76FD',
-            accentColorForeground: 'white',
+            accentColor: 'white',
+            accentColorForeground: '#361e65',
             borderRadius: 'large',
             fontStack: 'system',
             overlayBlur: 'small',

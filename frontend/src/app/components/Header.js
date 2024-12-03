@@ -16,15 +16,15 @@ const Header = ({ balance, refetch, handleDisconnect }) => {
   const showOptions = mounted && isConnected && chain?.id === 11155111;
 
   return (
-    <div className='flex w-full my-5 text-sm sm:text-xl font-bold min-h-[80px] text-center'>
-      <div className='w-1/5 ml-5 text-center'>
-        <div>
-          <p>Balance: {(Math.floor(balance * 100) / 100).toFixed(2)}</p>
-        </div>
-      </div>
-      <h3 className='w-1/5'>0.1 test ETH = 1000 credits</h3>
+    <div className='flex w-full my-5 text-sm sm:text-xl font-bold min-h-[90px] text-center'>
       {showOptions && (
         <>
+          <div className='w-1/5 ml-5 text-center'>
+            <div>
+              <p>Balance: {(Math.floor(balance * 100) / 100).toFixed(2)}</p>
+            </div>
+          </div>
+          <h3 className='w-1/5'>0.1 test ETH = 1000 credits</h3>
           <div className='flex flex-col w-1/5 items-center'>
             <Deposit refetch={refetch} />
           </div>
@@ -37,7 +37,7 @@ const Header = ({ balance, refetch, handleDisconnect }) => {
         </>
       )}
       {!showOptions && (
-        <div className='flex flex-col w-3/5 items-center'>
+        <div className='flex flex-col w-full items-center'>
           <ConnectButton />
         </div>
       )}

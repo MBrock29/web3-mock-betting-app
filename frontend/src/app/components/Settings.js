@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { CiSettings } from 'react-icons/ci';
 import { useAppContext } from '../AppContext';
 
-export const Settings = ({ handleDisconnect} ) => {
- 
-  const { fractions, handleChange, setSettings, settings } = useAppContext();
+export const Settings = ({ handleDisconnect }) => {
+  const { fractions, handleChange, setSettings, settings, settingsFunction } =
+    useAppContext();
 
   return (
     <div>
@@ -27,7 +27,7 @@ export const Settings = ({ handleDisconnect} ) => {
           </button>
         </div>
       ) : (
-        <CiSettings onClick={() => setSettings(true)} size='35px' />
+        <CiSettings onClick={settingsFunction} size='35px' />
       )}
     </div>
   );
